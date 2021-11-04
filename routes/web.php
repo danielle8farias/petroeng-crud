@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +15,6 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::get('/pets', [UserController::class, 'index']);
-Route::get('/pets/{pets}', [UserController::class, 'show']);
-Route::get('/pets/create', [UserController::class, 'create']);
+Route::get("/pet", [UserController::class, 'index'])->name('index');
+Route::get("/pet/create", [UserController::class, 'create'])->name('create');
+Route::get("/pet/show/{pet}", [UserController::class, 'show'])->name('show');

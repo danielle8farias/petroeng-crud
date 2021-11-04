@@ -28,7 +28,9 @@ class UserController extends Controller
     {
         $pet = $this->objPet->all()->sortBy('name');
 
-        return view("index", compact('pet'));
+        return view("index", [
+            'pet' => $pet
+        ]);
     }
 
     /**
@@ -39,7 +41,9 @@ class UserController extends Controller
     public function create()
     {
         $users = User::all();
-        return view('create', compact('users'));
+        return view('create', [
+            'users' => $users
+        ]);
     }
 
     /**
@@ -62,7 +66,9 @@ class UserController extends Controller
     public function show($id)
     {
         $pet=ModelPet::find($id);
-        return view('show',compact('pet'));
+        return view('show', [
+            'pet' => $pet
+        ]);
     }
 
     /**

@@ -12,7 +12,7 @@ class ModelPet extends Model
 
     public function relUsers()
     {
-        return $this->hasOne('App\Models\User', foreignKey: 'id', localKey: 'id_user');
+        return $this->hasOne(User::class, 'id_user', 'id');
     }
 
 }

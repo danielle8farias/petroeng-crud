@@ -20,7 +20,7 @@ class CreateModelPetsTable extends Migration
             $table->string('name');
             $table->string('breed');
             $table->string('color');
-            $table->double('weight', total:5, places:2);
+            $table->double('weight', 5, 2);
             $table->timestamps();
         });
     }

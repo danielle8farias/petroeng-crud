@@ -44,6 +44,6 @@ class User extends Authenticatable
 
     public function relPets()
     {
-        return $this->hasMany('App\Models\ModelPet', foreignKey: 'id_user');
+        return $this->hasMany(ModelPet::class, 'id_user', 'id');
     }
 }

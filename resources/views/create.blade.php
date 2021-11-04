@@ -4,7 +4,7 @@
 <h1 class="text-center">Cadastrar</h1> <hr>
 
 <div class="col-8 m-auto">
-    <form name="formCad" id="formCad" method="post" action="{{url('pets')}}">
+    <form name="formCad" id="formCad" method="post" action="">
         @csrf
         <input class="form-control" type="text" name="name" id="name" placeholder="Nome do pet:"><br>
         <select class="form-control" name="id_user" id="id_user">

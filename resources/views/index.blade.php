@@ -4,7 +4,7 @@
     <h1 class="text-center">CRUD</h1> <hr>
 
     <div class="text-center mt-3 mb-4">
-        <a href="{{url('pets/create')}}">
+        <a href="{{ route('create') }}">
             <button class="btn btn-success">Cadastrar</button>
         </a>
     </div>
@@ -30,7 +30,7 @@
                         <td>{{$pets->name}}</td>
                         <td>{{$user->name}}</td>
                         <td>
-                            <a href="{{url("pets/$pets->id")}}">
+                            <a href="{{ route('show', ['pets' => $pets->id]) }}">
                                 <button class="btn btn-dark">Visualizar</button>
                             </a>
                             <a href="">
