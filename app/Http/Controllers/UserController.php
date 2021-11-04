@@ -26,10 +26,12 @@ class UserController extends Controller
      */
     public function index()
     {
-        $pet = $this->objPet->all()->sortBy('name');
+        //$pet = $this->objPet->all()->sortBy('name');
+
+        $pets = ModelPet::all();
 
         return view("index", [
-            'pet' => $pet
+            'pets' => $pets
         ]);
     }
 

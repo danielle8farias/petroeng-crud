@@ -21,16 +21,13 @@
             </thead>
             <tbody>
 
-                @foreach ($pet as $pets)
-                    @php
-                        $user=$pets->find($pets->id)->relUsers;
-                    @endphp
+                @foreach ($pets as $pet)
                     <tr>
-                        <th scope="row">{{$pets->id}}</th>
-                        <td>{{$pets->name}}</td>
-                        <td>{{$user->name}}</td>
+                        <th scope="row">{{$pet->id}}</th>
+                        <td>{{$pet->name}}</td>
+                        <td>{{$pet->relUsers->name}}</td>
                         <td>
-                            <a href="{{ route('show', ['pets' => $pets->id]) }}">
+                            <a href="{{ route('show', ['pet' => $pet->id]) }}">
                                 <button class="btn btn-dark">Visualizar</button>
                             </a>
                             <a href="">
