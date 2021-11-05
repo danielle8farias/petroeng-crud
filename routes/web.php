@@ -15,6 +15,7 @@ use App\Models\User;
 |
 */
 
-Route::get("/pet", [UserController::class, 'index'])->name('index');
-Route::get("/pet/create", [UserController::class, 'create'])->name('create');
-Route::get("/pet/show/{pet}", [UserController::class, 'show'])->name('show');
+Route::get("/pets", [UserController::class, 'index'])->name('index');
+Route::get("/pets/create", [UserController::class, 'create'])->name('create');
+Route::get("/pets/show/{pets}", [UserController::class, 'show'])->name('show');
+Route::post('/pets/store', [UserController::class, 'store'])->name('store');

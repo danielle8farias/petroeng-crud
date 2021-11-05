@@ -4,7 +4,7 @@
     <h1 class="text-center">CRUD</h1> <hr>
 
     <div class="text-center mt-3 mb-4">
-        <a href="{{ route('create') }}">
+        <a href="{{ route('pets/create') }}">
             <button class="btn btn-success">Cadastrar</button>
         </a>
     </div>
@@ -27,10 +27,10 @@
                         <td>{{$pet->name}}</td>
                         <td>{{$pet->relUsers->name}}</td>
                         <td>
-                            <a href="{{ route('show', ['pet' => $pet->id]) }}">
+                            <a href="{{ route('show', ['pets' => $pet->id]) }}">
                                 <button class="btn btn-dark">Visualizar</button>
                             </a>
-                            <a href="">
+                            <a href="{{ route('update', ['pets' => $pet->id]) }}">
                                 <button class="btn btn-primary">Editar</button>
                             </a>
                             <a href="">

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Request\PetRequest;
 use App\Models\ModelPet;
 use App\Models\User;
 
@@ -54,9 +54,18 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PetRequest $request)
     {
-        //
+        $pet = new ModelPet();
+
+        $pet->name = $request->name;
+        $pet->breed = $request->breed;
+        $pet->weight = $request->weight;
+        $pet->color = $request->color;
+        $pet->id_user = $request->id_user;
+
+        $pet->save();
+        return $pet;
     }
 
     /**
@@ -81,7 +90,10 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $pet=ModelPet::find($id);
+        $pet=ModelPet::all();
+        return view('create', compact('pet', 'users'));
+
     }
 
     /**
@@ -91,9 +103,18 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(PetRequest $request)
     {
-        //
+        $pet=ModelPet::findOrFail($request->id);
+
+        $pet->name = $request->name;
+        $pet->breed = $request->breed;
+        $pet->weight = $request->weight;
+        $pet->color = $request->color;
+        $pet->id_user = $request->id_user;
+
+        $pet->save();
+        return $pet;
     }
 
     /**
@@ -102,8 +123,10 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        $pet=ModelPet::destroy($request->id);
+        return $pet;
+
     }
 }
